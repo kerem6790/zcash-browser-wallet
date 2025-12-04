@@ -1,4 +1,0 @@
-zcash_address::unified::Address
-Vec<zcash_address::unified::Receiver>
-zcash_address::unified::Address: TryFrom<Vec<zcash_address::unified::Receiver>>
-zcash_address::unified::Address: From<Vec<zcash_address::unified::Receiver>>

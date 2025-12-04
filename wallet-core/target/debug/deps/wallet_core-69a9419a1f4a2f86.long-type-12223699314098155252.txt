@@ -1,2 +1,0 @@
-orchard::action::Action<orchard::primitives::redpallas::Signature<reddsa::orchard::SpendAuth>>
-orchard::action::Action<orchard::primitives::redpallas::Signature<reddsa::orchard::SpendAuth>>: ShieldedOutput<OrchardDomain, 580>

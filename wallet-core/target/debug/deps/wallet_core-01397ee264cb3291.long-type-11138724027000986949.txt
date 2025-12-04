@@ -1,1 +1,0 @@
-BridgeTree<MerkleHashOrchard, 32>

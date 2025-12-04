@@ -1,1 +1,0 @@
-(&impl Fn() -> T + Send + Sync, Result<T, E>)

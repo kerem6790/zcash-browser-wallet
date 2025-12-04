@@ -1,2 +1,0 @@
-&impl Fn(T, Result<T, E>) -> Result<T, E> + Send + Sync
-(&impl Fn() -> T + Send + Sync, Result<T, E>)
