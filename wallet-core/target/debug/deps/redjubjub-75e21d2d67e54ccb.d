@@ -1,0 +1,11 @@
+/Users/kgege/Desktop/zcash walelt/wallet-core/target/debug/deps/redjubjub-75e21d2d67e54ccb.d: /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/lib.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/batch.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/error.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/signature.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/signing_key.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/verification_key.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/../README.md
+
+/Users/kgege/Desktop/zcash walelt/wallet-core/target/debug/deps/libredjubjub-75e21d2d67e54ccb.rmeta: /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/lib.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/batch.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/error.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/signature.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/signing_key.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/verification_key.rs /Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/../README.md
+
+/Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/lib.rs:
+/Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/batch.rs:
+/Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/error.rs:
+/Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/signature.rs:
+/Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/signing_key.rs:
+/Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/verification_key.rs:
+/Users/kgege/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/redjubjub-0.6.0/src/../README.md:

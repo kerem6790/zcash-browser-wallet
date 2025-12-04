@@ -1,0 +1,2 @@
+orchard::note::NoteCommitment
+MerkleHashOrchard: From<orchard::note::NoteCommitment>

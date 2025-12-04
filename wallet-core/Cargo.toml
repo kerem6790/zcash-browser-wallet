@@ -1,0 +1,30 @@
+[package]
+name = "wallet-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+orchard = { version = "0.3", default-features = false }
+zcash_note_encryption = "0.2"
+zcash_primitives = "0.10"
+zcash_proofs = "0.10"
+zcash_encoding = "0.3"
+incrementalmerkletree = "0.3"
+ff = "0.13"
+group = "0.13"
+jubjub = "0.10"
+
+# Poseidon over Pallas (Mina compatibility)
+halo2_gadgets = { version = "0.3", default-features = false }
+pasta_curves = "0.5"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hex = "0.4"
+bellman = "0.13"
+bls12_381 = "0.7"
+rand_core = "0.6"
+redjubjub = "0.5"
+zcash_address = "0.2"
+bech32 = "0.9"

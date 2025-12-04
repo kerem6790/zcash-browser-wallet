@@ -1,0 +1,1 @@
+halo2_gadgets::poseidon::halo2_poseidon::Hash<_, P128Pow5T3, ConstantLength<2>, 3, 2>

@@ -1,0 +1,1 @@
+&orchard::action::Action<orchard::primitives::redpallas::Signature<reddsa::orchard::SpendAuth>>

@@ -1,0 +1,2 @@
+orchard::tree::MerklePath
+&orchard::tree::MerklePath
