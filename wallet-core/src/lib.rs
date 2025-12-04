@@ -3,6 +3,6 @@ pub mod rpc;
 pub mod sync;
 pub mod merkle;
 pub mod notes;
-pub mod witness;
+// pub mod witness;
 pub mod tx;
-pub mod export_mina;
+// pub mod export_mina;

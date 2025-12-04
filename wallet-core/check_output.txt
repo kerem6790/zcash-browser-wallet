@@ -1,0 +1,97 @@
+    Checking wallet-core v0.1.0 (/Users/kgege/Desktop/zcash walelt/wallet-core)
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `halo2_gadgets`
+ --> src/witness.rs:1:5
+  |
+1 | use halo2_gadgets::poseidon::primitives::{ConstantLength, Hash, P128Pow5T3, Spec};
+  |     ^^^^^^^^^^^^^ use of unresolved module or unlinked crate `halo2_gadgets`
+  |
+  = help: if you wanted to use a crate named `halo2_gadgets`, use `cargo add halo2_gadgets` to add it to your `Cargo.toml`
+
+error[E0432]: unresolved import `pasta_curves`
+ --> src/witness.rs:2:5
+  |
+2 | use pasta_curves::pallas;
+  |     ^^^^^^^^^^^^ use of unresolved module or unlinked crate `pasta_curves`
+  |
+  = help: if you wanted to use a crate named `pasta_curves`, use `cargo add pasta_curves` to add it to your `Cargo.toml`
+
+warning: unused imports: `GetBlockResponse` and `GetRawTransactionResponse`
+ --> src/sync.rs:1:18
+  |
+1 | use crate::rpc::{GetBlockResponse, GetRawTransactionResponse};
+  |                  ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `orchard::bundle::Bundle`
+ --> src/sync.rs:2:5
+  |
+2 | use orchard::bundle::Bundle;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Nullifier`
+ --> src/sync.rs:5:27
+  |
+5 | use orchard::note::{Note, Nullifier, RandomSeed};
+  |                           ^^^^^^^^^
+
+warning: unused import: `orchard::value::NoteValue`
+ --> src/sync.rs:6:5
+  |
+6 | use orchard::value::NoteValue;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `BlockHeight` and `MainNetwork`
+ --> src/sync.rs:8:35
+  |
+8 | use zcash_primitives::consensus::{BlockHeight, BranchId, MainNetwork};
+  |                                   ^^^^^^^^^^^            ^^^^^^^^^^^
+
+warning: unused import: `zcash_note_encryption::try_note_decryption`
+  --> src/sync.rs:11:5
+   |
+11 | use zcash_note_encryption::try_note_decryption;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `MerklePath`
+ --> src/merkle.rs:1:40
+  |
+1 | use orchard::tree::{MerkleHashOrchard, MerklePath};
+  |                                        ^^^^^^^^^^
+
+warning: unused import: `Hashable`
+ --> src/merkle.rs:2:53
+  |
+2 | use incrementalmerkletree::{bridgetree::BridgeTree, Hashable, Tree};
+  |                                                     ^^^^^^^^
+
+warning: unused import: `ff::PrimeField`
+  --> src/witness.rs:21:9
+   |
+21 |     use ff::PrimeField;
+   |         ^^^^^^^^^^^^^^
+
+warning: unused import: `ff::PrimeField`
+  --> src/witness.rs:29:9
+   |
+29 |     use ff::PrimeField;
+   |         ^^^^^^^^^^^^^^
+
+warning: unused variable: `padding_needed`
+  --> src/keys.rs:71:13
+   |
+71 |         let padding_needed = target_len - len;
+   |             ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_padding_needed`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `keys`
+ --> src/tx.rs:4:5
+  |
+4 |     keys: &WalletKeys, 
+  |     ^^^^ help: if this is intentional, prefix it with an underscore: `_keys`
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.
+warning: `wallet-core` (lib) generated 12 warnings
+error: could not compile `wallet-core` (lib) due to 2 previous errors; 12 warnings emitted

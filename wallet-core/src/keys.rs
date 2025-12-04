@@ -1,6 +1,5 @@
-use orchard::keys::{FullViewingKey, Scope, SpendingKey};
+use orchard::keys::{SpendingKey, FullViewingKey, Scope};
 use orchard::Address;
-use zcash_primitives::zip32::{ChildIndex, ExtendedSpendingKey};
 
 pub struct WalletKeys {
     pub spending_key: SpendingKey,
@@ -9,20 +8,8 @@ pub struct WalletKeys {
 }
 
 impl WalletKeys {
-    /// Initialize wallet keys from a hex-encoded seed.
-    /// Uses ZIP-32 derivation path for Orchard: m/32'/133'/0'
-    pub fn from_seed_hex(seed_hex: &str) -> Result<Self, String> {
-        let seed = hex::decode(seed_hex).map_err(|e| format!("Invalid hex seed: {}", e))?;
-        
-        // Use ZIP-32 to derive the spending key.
-        // Coin type 133 is for Zcash Mainnet, 1 is Testnet. 
-        // The prompt asks for "Mina Bridge Witness Exporter" which usually implies Testnet for bridges initially,
-        // but the RPC is Mainnet? Wait, the RPC URL is `go.getblock.io`.
-        // The prompt says "Mina Bridge JSON Export Logic ... network: testnet".
-        // Let's assume Testnet (Coin Type 1) for safety if it's a bridge test, 
-        // OR we can make it configurable. 
-        // However, standard Zcash wallets usually derive for the network they are on.
-        // Let's stick to Testnet (1) as the JSON example says "network": "testnet".
+    pub fn from_seed(seed_hex: &str) -> Result<Self, String> {
+        let seed = hex::decode(seed_hex).map_err(|_| "Invalid hex seed".to_string())?;
         
         // Coin type 133 is for Zcash Mainnet, 1 is Testnet. 
         let coin_type = 133; // Mainnet
@@ -53,9 +40,10 @@ impl WalletKeys {
 
     pub fn get_unified_address(&self) -> String {
         use bech32::{self, ToBase32, Variant};
+        use f4jumble::f4jumble;
         
-        // Proper Bech32m encoding for Unified Address
-        // HRP: "utest" for Testnet, "u" for Mainnet
+        // Proper Bech32m encoding for Unified Address with F4Jumble
+        // HRP: "u" for Mainnet
         let hrp = "u";
         
         // Orchard Type Code: 0x03
@@ -69,8 +57,25 @@ impl WalletKeys {
         payload.push(43);   // Length
         payload.extend_from_slice(&orchard_bytes);
         
+        // ZIP 316 Padding:
+        // "The input to F4Jumble... is padded with zero bytes until its length is a multiple of 16 bytes, and at least 48 bytes."
+        let len = payload.len();
+        let mut target_len = len;
+        if target_len < 48 {
+            target_len = 48;
+        }
+        while target_len % 16 != 0 {
+            target_len += 1;
+        }
+        
+        let padding_needed = target_len - len;
+        payload.resize(target_len, 0);
+        
+        // Apply F4Jumble
+        let jumbled = f4jumble(&payload).expect("F4Jumble failed");
+        
         // Convert to base32
-        let data = payload.to_base32();
+        let data = jumbled.to_base32();
         
         // Encode using Bech32m
         bech32::encode(hrp, data, Variant::Bech32m).unwrap_or_else(|_| "Error encoding address".to_string())

@@ -4,7 +4,7 @@ use wasm_bindgen_futures::JsFuture;
 use wallet_core::keys::WalletKeys;
 use wallet_core::sync::{SyncEngine, DecryptedNote};
 use wallet_core::merkle::OrchardTree;
-use wallet_core::export_mina::create_export;
+// use wallet_core::export_mina::create_export;
 use wallet_core::rpc::{build_getblock_request, build_getrawtransaction_request, GetBlockResponse, GetRawTransactionResponse, JsonRpcResponse};
 use serde::{Serialize, Deserialize};
 use std::cell::RefCell;
@@ -34,7 +34,7 @@ pub struct JsWallet {
 impl JsWallet {
     #[wasm_bindgen(constructor)]
     pub fn new(seed_hex: &str) -> Result<JsWallet, JsValue> {
-        let keys = WalletKeys::from_seed_hex(seed_hex).map_err(|e| JsValue::from_str(&e))?;
+        let keys = WalletKeys::from_seed(seed_hex).map_err(|e| JsValue::from_str(&e))?;
         // We need fvk and sk for sync engine
         let engine = SyncEngine::new(keys.fvk.clone(), Some(keys.spending_key.clone()));
         
@@ -137,18 +137,6 @@ impl JsWallet {
         serde_wasm_bindgen::to_value(&js_notes).unwrap()
     }
 
-    pub fn export_mina_bridge(&self, note_index: usize) -> Result<String, JsValue> {
-        let notes = self.notes.borrow();
-        let note = notes.get(note_index).ok_or_else(|| JsValue::from_str("Note not found"))?;
-        
-        let position = note_index; 
-        
-        let tree = self.tree.borrow();
-        let json = create_export(note, &tree, position, &self.keys.spending_key)
-            .map_err(|e| JsValue::from_str(&e))?;
-            
-        Ok(json)
-    }
 
     pub fn send(&self, recipient: &str, amount: u64) -> Result<String, JsValue> {
         use wallet_core::tx::build_tx;
